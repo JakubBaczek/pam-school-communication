@@ -53,6 +53,7 @@
 
     <EditText
         android:id="@+id/passwordField"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Hasło"
@@ -64,20 +65,54 @@
     <EditText
         android:id="@+id/retypePassword"
         android:layout_width="match_parent"
+        android:inputType="textPassword"
         android:layout_height="wrap_content"
         android:hint="Powtórz hasło"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TouchTargetSizeCheck"
         app:layout_constraintTop_toBottomOf="@id/passwordField"/>
-    <Button
-        android:id="@+id/registerButton"
-        android:text="Zaloguj"
+    <RadioGroup
+        android:id="@+id/checkGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/retypePassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    <RadioButton
+        android:id="@+id/studentCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/retypePassword"/>
+        android:text="Uczeń"
+        app:layout_constraintTop_toBottomOf="@id/retypePassword"
+        />
+    <RadioButton
+        android:id="@+id/parentCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/studentCheck"
+        android:text="Rodzic"
+        app:layout_constraintTop_toBottomOf="@id/retypePassword"
+        />
+    <RadioButton
+        android:id="@+id/teacherCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/studentCheck"
+        android:text="Nauczyciel"
+        app:layout_constraintTop_toBottomOf="@id/retypePassword"
+        />
+    </RadioGroup>
+    <Button
+        android:id="@+id/registerButton"
+        android:text="Zarejestruj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkGroup"/>
     <TextView
         android:id="@+id/RegisteredTextView"
         android:layout_width="wrap_content"

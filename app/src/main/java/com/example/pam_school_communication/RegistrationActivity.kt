@@ -5,12 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.RadioButton
 import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.Objects
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -27,11 +27,12 @@ class RegistrationActivity : AppCompatActivity() {
         val alreadyRegisteredText: TextView = findViewById(R.id.RegisteredTextView)
         val nameText :EditText = findViewById(R.id.nameField)
         val secondNameText :EditText = findViewById(R.id.secondNameField)
-
+        val studentCheck: RadioButton = findViewById(R.id.studentCheck)
+        val parentCheck: RadioButton = findViewById(R.id.parentCheck)
+        val teacherCheck: RadioButton = findViewById(R.id.teacherCheck)
 
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseStore = FirebaseFirestore.getInstance()
-
 
         registrationButton.setOnClickListener() {
             val email = emailText.text.toString()
@@ -54,7 +55,16 @@ class RegistrationActivity : AppCompatActivity() {
                                 userInfo["Name"] = nameText.text.toString()         //zapis danych użytkownika do fireStore
                                 userInfo["SecondName"] = secondNameText.text.toString()
                                 userInfo["email"] = email
-                                userInfo["IsTeacher"] = "0"
+
+                                if(studentCheck.isChecked){
+                                    userInfo["isStudent"] = "1"
+                                }else if(parentCheck.isChecked){
+                                    userInfo["isParent"] = "1"
+                                }else if(teacherCheck.isChecked){
+                                    userInfo["isTeacher"] = "0"
+                                }else{
+                                    Toast.makeText(this, "zaznacz opcję", Toast.LENGTH_LONG).show()
+                                }
 
                                 if (df != null) {
                                     df.set(userInfo)
