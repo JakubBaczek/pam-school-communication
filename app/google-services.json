@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "944769402337",
+    "project_id": "pamschoolcommunication",
+    "storage_bucket": "pamschoolcommunication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944769402337:android:6edd25ac93ea59683cbea0",
+        "android_client_info": {
+          "package_name": "com.example.pam_school_communication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944769402337-51990g697ebdm0qffvfl11ovkaj26gen.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyWHwLYZKIVbLWaDIQSPp5HCjyaswoqJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944769402337-51990g697ebdm0qffvfl11ovkaj26gen.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
