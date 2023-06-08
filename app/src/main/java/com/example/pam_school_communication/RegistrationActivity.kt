@@ -9,27 +9,22 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
-class MainActivity : AppCompatActivity() {
-    private lateinit var firebaseAuth : FirebaseAuth
+class RegistrationActivity : AppCompatActivity() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val loginButton: Button = findViewById(R.id.loginButton)
+        setContentView(R.layout.activity_registration)
+        val registrationButton: Button = findViewById(R.id.registerButton)
         val emailText: EditText = findViewById(R.id.emailField)
         val passwordText: EditText = findViewById(R.id.passwordField)
         val retypePasswordText: EditText = findViewById(R.id.retypePassword)
-        val notRegisteredText :TextView = findViewById(R.id.notRegisteredText)
+        val alreadyRegisteredText: TextView = findViewById(R.id.RegisteredTextView)
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        notRegisteredText.setOnClickListener(){
-            Intent(this, RegistrationActivity::class.java).also{
-                startActivity(it)
-            }
-        }
-
-        loginButton.setOnClickListener(){
+        registrationButton.setOnClickListener() {
             val email = emailText.text.toString()
             val password = passwordText.text.toString()
             val retypedPassword = retypePasswordText.text.toString()
@@ -37,10 +32,10 @@ class MainActivity : AppCompatActivity() {
             if (email.isNotEmpty() && password.isNotEmpty() && retypedPassword.isNotEmpty()) {
 
                 if (password == retypedPassword) {
-                    firebaseAuth.signInWithEmailAndPassword(email, password)
+                    firebaseAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
-                                val intent = Intent(this, MenuActivity::class.java)
+                                val intent = Intent(this, MainActivity::class.java)
                                 startActivity(intent)
                             } else {
                                 Toast.makeText(this, "${it.exception}", Toast.LENGTH_LONG).show()
@@ -55,5 +50,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        alreadyRegisteredText.setOnClickListener() {
+            Intent(this, MainActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 }

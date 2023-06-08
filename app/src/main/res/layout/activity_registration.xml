@@ -4,22 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".RegistrationActivity"
     android:paddingLeft="25sp"
     android:paddingRight="25sp"
     android:paddingTop="25sp"
     android:paddingBottom="25sp">
 
-<TextView
-    android:id="@+id/helloLogin"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Witamy w ekranie logowania"
-    android:textSize="21sp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintBottom_toTopOf="@id/emailField"
-    android:paddingBottom="30sp"/>
+    <TextView
+        android:id="@+id/helloRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zarejestruj się!"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/emailField"
+        android:paddingBottom="30sp"/>
 
 
     <EditText
@@ -51,7 +51,7 @@
         tools:ignore="TouchTargetSizeCheck"
         app:layout_constraintTop_toBottomOf="@id/passwordField"/>
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/registerButton"
         android:text="Zaloguj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,17 +59,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/retypePassword"/>
     <TextView
-        android:id="@+id/notRegisteredText"
+        android:id="@+id/RegisteredTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Kliknij TU aby się zarejestrować!"/>
+        android:text="Masz już konto? Kliknij aby przejść do ekranu logowania"/>
 
-
-
-       
 
 
 
