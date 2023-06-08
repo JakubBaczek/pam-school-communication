@@ -14,13 +14,24 @@
     android:id="@+id/helloLogin"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Witamy w ekranie logowania"
-    android:textSize="21sp"
+    android:text="Witamy!"
+    android:textStyle="bold"
+    android:textSize="25sp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintBottom_toTopOf="@id/emailField"
-    android:paddingBottom="30sp"/>
+    app:layout_constraintBottom_toTopOf="@id/infoLogin"
+    android:paddingBottom="80sp"/>
 
+    <TextView
+        android:id="@+id/infoLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logowanie do systemu"
+        android:textSize="21sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/emailField"
+        android:paddingBottom="20sp"/>
 
     <EditText
         android:id="@+id/emailField"
