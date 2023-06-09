@@ -30,7 +30,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TouchTargetSizeCheck"
+        app:layout_constraintBottom_toTopOf="@id/nameField"/>
+    <EditText
+        android:id="@+id/nameField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Imię"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck"
+        app:layout_constraintBottom_toTopOf="@id/secondNameField"/>
+
+    <EditText
+        android:id="@+id/secondNameField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nazwisko"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck"
         app:layout_constraintBottom_toTopOf="@id/passwordField"/>
+
     <EditText
         android:id="@+id/passwordField"
         android:layout_width="match_parent"
@@ -52,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/passwordField"/>
     <Button
         android:id="@+id/registerButton"
-        android:text="Zaloguj"
+        android:text="Zarejestruj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
