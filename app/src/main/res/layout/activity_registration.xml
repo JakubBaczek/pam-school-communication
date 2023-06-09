@@ -14,7 +14,7 @@
         android:id="@+id/helloRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Rejestracja w systemie"
+        android:text="Zarejestruj się!"
         android:textSize="21sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,7 @@
         app:layout_constraintTop_toBottomOf="@id/passwordField"/>
     <Button
         android:id="@+id/registerButton"
-        android:text="Zarejestruj"
+        android:text="Zaloguj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
