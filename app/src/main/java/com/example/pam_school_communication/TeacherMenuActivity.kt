@@ -2,20 +2,10 @@ package com.example.pam_school_communication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 
-class MenuActivity : AppCompatActivity() {
-
-
+class TeacherMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_menu)
-
-
-
-
-
+        setContentView(R.layout.activity_teacher_menu)
     }
 }

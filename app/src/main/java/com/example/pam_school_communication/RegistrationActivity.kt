@@ -56,7 +56,7 @@ class RegistrationActivity : AppCompatActivity() {
                                 userInfo["Name"] = nameText.text.toString()         //zapis danych użytkownika do fireStore
                                 userInfo["SecondName"] = secondNameText.text.toString()
                                 userInfo["email"] = email
-                                // ustawianie ifnormacji odnośnie przedmiotów i ocen, tylko uczeń
+                                // ustawianie ifnormacji odnośnie przedmiotów i ocen, oceny ma tylko uczeń
                                 val mathdf = user?.let { it1 ->
                                     firebaseStore.collection("Users").document(it1.uid)
                                         .collection("Subjects and Grades").document("Matematyka")
