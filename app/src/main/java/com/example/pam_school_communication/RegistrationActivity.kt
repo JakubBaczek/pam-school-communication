@@ -47,6 +47,7 @@ class RegistrationActivity : AppCompatActivity() {
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
                                 val user: FirebaseUser? = firebaseAuth.currentUser
+                                // ustawianie informacji dla każdego użytkownika
                                 val df = user?.let { it1 ->
                                     firebaseStore.collection("Users").document(
                                         it1.uid)
@@ -55,9 +56,38 @@ class RegistrationActivity : AppCompatActivity() {
                                 userInfo["Name"] = nameText.text.toString()         //zapis danych użytkownika do fireStore
                                 userInfo["SecondName"] = secondNameText.text.toString()
                                 userInfo["email"] = email
+                                // ustawianie ifnormacji odnośnie przedmiotów i ocen, tylko uczeń
+                                val mathdf = user?.let { it1 ->
+                                    firebaseStore.collection("Users").document(it1.uid)
+                                        .collection("Subjects and Grades").document("Matematyka")
+                                }
+
+                                val pldf = user?.let { it1 ->
+                                    firebaseStore.collection("Users").document(it1.uid)
+                                        .collection("Subjects and Grades").document("Polski")
+                                }
+
+                                val angdf = user?.let { it1 ->
+                                    firebaseStore.collection("Users").document(it1.uid)
+                                        .collection("Subjects and Grades").document("Angielski")
+                                }
+
+                                val histdf = user?.let { it1 ->
+                                    firebaseStore.collection("Users").document(it1.uid)
+                                        .collection("Subjects and Grades").document("Historia")
+                                }
+
+                                val subjects :HashMap<String, Any> = HashMap()
+                                subjects["Ocena"]
 
                                 if(studentCheck.isChecked){
                                     userInfo["isStudent"] = "1"
+                                    if(mathdf != null && pldf!=null && angdf != null && histdf != null){
+                                        mathdf.set(subjects)
+                                        pldf.set(subjects)
+                                        angdf.set(subjects)
+                                        histdf.set(subjects)
+                                    }
                                 }else if(parentCheck.isChecked){
                                     userInfo["isParent"] = "1"
                                 }else if(teacherCheck.isChecked){
