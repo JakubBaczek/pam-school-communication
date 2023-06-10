@@ -80,7 +80,7 @@ class ChatActivity : AppCompatActivity() {
                     )
 
                 // Clear the input
-                //input.setText(" ")
+                input.setText("")
         }
 
         displayChatMessages();
