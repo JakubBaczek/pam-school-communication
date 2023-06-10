@@ -7,12 +7,32 @@
     tools:context=".MenuActivity">
 
     <TextView
+        android:id="@+id/loggedInText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Zalogowałeś się!"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <EditText
+        android:id="@+id/chatEmailSelectionField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TouchTargetSizeCheck"
+        app:layout_constraintTop_toBottomOf="@id/loggedInText"/>
+
+    <Button
+        android:id="@+id/startChatButton"
+        android:text="Rozpocznij czat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chatEmailSelectionField"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
