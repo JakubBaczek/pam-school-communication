@@ -14,9 +14,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-
-
-
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 
 class ChatActivity : AppCompatActivity() {
@@ -29,7 +28,7 @@ class ChatActivity : AppCompatActivity() {
 
         adapter = object : FirebaseListAdapter<ChatMessage>(
             this, ChatMessage::class.java,
-            R.layout.message, FirebaseDatabase.getInstance().reference
+            R.layout.message, Firebase.database("https://pamschoolcommunication-default-rtdb.europe-west1.firebasedatabase.app/").getReference("chatrooms/chatroom1")
         ) {
             override fun populateView(v: View, model: ChatMessage, position: Int) {
 
@@ -67,15 +66,14 @@ class ChatActivity : AppCompatActivity() {
 
             // Read the input field and push a new instance of ChatMessage to the Firebase database
 
-                FirebaseDatabase.getInstance()
-                    .reference
-                    .push()
-                    .setValue(
-                        ChatMessage(
-                            input.text.toString(),
-                            FirebaseAuth.getInstance()
-                                .currentUser
-                                ?.email
+            Firebase.database("https://pamschoolcommunication-default-rtdb.europe-west1.firebasedatabase.app/")
+                .getReference("chatrooms/chatroom1")
+                .push()
+                .setValue(
+                    ChatMessage(input.text.toString(),
+                        FirebaseAuth.getInstance()
+                            .currentUser
+                            ?.email
                         )
                     )
 
