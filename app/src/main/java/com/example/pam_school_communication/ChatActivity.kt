@@ -23,12 +23,18 @@ class ChatActivity : AppCompatActivity() {
 
     private lateinit var adapter: FirebaseListAdapter<ChatMessage>
 
+    var curUserEmail: String = "NOCURUSEREMAIL!"
+    var selectedEmail: String = "NOSELECTEDEMAIL!"
+    var alphabeticallyFirstEmailNoDots: String = "NOALPHABETICALLYFIRSTEMAILNODOTS!"
+    var alphabeticallySecondEmailNoDots: String = "NOALPHABETICALLYSECONDEMAILNODOTS!"
+
     private fun displayChatMessages() {
         val listOfMessages = findViewById<ListView>(R.id.list_of_messages)
 
         adapter = object : FirebaseListAdapter<ChatMessage>(
             this, ChatMessage::class.java,
-            R.layout.message, Firebase.database("https://pamschoolcommunication-default-rtdb.europe-west1.firebasedatabase.app/").getReference("chatrooms/chatroom1")
+            R.layout.message, Firebase.database("https://pamschoolcommunication-default-rtdb.europe-west1.firebasedatabase.app/")
+                .getReference("chatrooms/$alphabeticallyFirstEmailNoDots/$alphabeticallySecondEmailNoDots")
         ) {
             override fun populateView(v: View, model: ChatMessage, position: Int) {
 
@@ -59,6 +65,11 @@ class ChatActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
+        curUserEmail = intent.getStringExtra("Current User Email").toString()
+        selectedEmail = intent.getStringExtra("Selected Email").toString()
+        alphabeticallyFirstEmailNoDots = intent.getStringExtra("Alphabetically First Email No Dots").toString()
+        alphabeticallySecondEmailNoDots = intent.getStringExtra("Alphabetically Second Email No Dots").toString()
+
         val fab: FloatingActionButton = findViewById(R.id.fab)
 
         fab.setOnClickListener(){
@@ -67,7 +78,7 @@ class ChatActivity : AppCompatActivity() {
             // Read the input field and push a new instance of ChatMessage to the Firebase database
 
             Firebase.database("https://pamschoolcommunication-default-rtdb.europe-west1.firebasedatabase.app/")
-                .getReference("chatrooms/chatroom1")
+                .getReference("chatrooms/$alphabeticallyFirstEmailNoDots/$alphabeticallySecondEmailNoDots")
                 .push()
                 .setValue(
                     ChatMessage(input.text.toString(),
