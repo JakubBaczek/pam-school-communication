@@ -17,13 +17,27 @@
             android:exported="false" />
         <activity
             android:name=".TeacherMenuActivity"
-            android:exported="false" />
+            android:exported="true"
+            android:theme="@style/Theme.Pamschoolcommunication.NoActionBar"/>
         <activity
             android:name=".MenuActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Pamschoolcommunication.NoActionBar"/>
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChatStartActivity"
             android:exported="false" />
         <activity
             android:name=".RegistrationActivity"
             android:exported="false" />
+        <activity
+            android:name=".GradeActivity"
+            android:exported="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -34,5 +48,5 @@
             </intent-filter>
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

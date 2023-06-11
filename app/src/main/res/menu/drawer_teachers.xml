@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    android:id="@+id/drawer_teachers">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_notification"
+            android:icon="@drawable/announcements_icon"
+            android:title="Ogłoszenia"/>
+
+        <item
+            android:id="@+id/drawer_edit_grades"
+            android:icon="@drawable/subjects_icon"
+            android:title="Wystawianie ocen" />
+
+        <item
+            android:id="@+id/drawer_chat"
+            android:icon="@drawable/chat_icon"
+            android:title="Chat"/>
+    </group>
+
+</menu>

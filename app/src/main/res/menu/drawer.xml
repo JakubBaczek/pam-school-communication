@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    android:id="@+id/drawer">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/drawer_profile"
+            android:icon="@drawable/announcements_icon"
+            android:title="Ogłoszenia"/>
+
+        <item
+            android:id="@+id/drawer_grades"
+            android:icon="@drawable/grades_icon"
+            android:title="Oceny" />
+
+        <item
+            android:id="@+id/drawer_chat"
+            android:icon="@drawable/chat_icon"
+            android:title="Chat"/>
+    </group>
+
+</menu>

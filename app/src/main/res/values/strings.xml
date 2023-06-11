@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">Pam-school-communication</string>
+    <string name="app_name">School Diary</string>
+    <string name="main_menu_about">O programie</string>
+    <string name="about_activity_app_name">"@string/app_name"</string>
+    <string name="about_activity_description">
+        Aplikacja do publikowania ogłoszeń szkolnych,
+        wglądu w oceny i komunikacji z rodzicami,
+        służąca jako projekt na przedmiot
+        Programowanie Aplikacji Mobilnych.
+    </string>
+    <string name="about_activity_version">Wersja 1.0</string>
+    <string name="about_activity_authors">Autorzy:</string>
+    <string name="author_rs">
+        Jakub Bączek
+        Paweł Grzymała
+        Dmytro Ostrovskyi
+        Tomasz Syryło
+
+
+        WEL20EU1S1
+    </string>
+    <string name="content_description_app_icon">Ikona aplikacji</string>
+    <string name="profile_fragment_placeholder">Profile Fragment</string>
+    <string name="open_navigation_bar">Open navigation bar</string>
+    <string name="close_navigation_bar">Close navigation bar</string>
+    <string name="drawer_header_description">*tu dać np. mail użytkownika*</string>
+    <string name="content_description_profile_icon">Ikona profilowa</string>
 </resources>

@@ -75,9 +75,9 @@ class MainActivity : AppCompatActivity() {
     fun checkIfStudent(uid: String) {
         val df = firebaseStore.collection("Users").document(uid)
         df.get().addOnSuccessListener() {
-           if (it.data?.get("isStudent") != null) {
-               val intent = Intent(this, MenuActivity::class.java)
-               startActivity(intent)
+            if (it.data?.get("isStudent") != null) {
+                val intent = Intent(this, MenuActivity::class.java)
+                startActivity(intent)
             }
         }
     }
@@ -107,4 +107,3 @@ class MainActivity : AppCompatActivity() {
 
 
 }
-

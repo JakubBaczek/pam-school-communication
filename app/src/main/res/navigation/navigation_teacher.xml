@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_teacher"
+    app:startDestination="@+id/nav_notification">
+
+    <fragment
+        android:id="@+id/nav_notification"
+        android:name="com.example.pam_school_communication.fragments.NotificationFragment"
+        android:label="Ogłoszenia"
+        tools:layout="@layout/activity_teacher_menu" />
+
+    <activity
+        android:id="@+id/nav_edit_grades"
+        android:name="com.example.pam_school_communication.fragments.NotificationFragment"
+        android:label="Wystawianie ocen"
+        tools:layout="@layout/activity_grade" />
+
+    <activity
+        android:id="@+id/nav_chat"
+        android:name="com.example.pam_school_communication.fragments.NotificationFragment"
+        android:label="Chat"
+        tools:layout="@layout/activity_about" />
+
+</navigation>
