@@ -20,6 +20,7 @@ class GradesLookupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grades_lookup)
 
+        // Inicjalizacja widoków
         studentNameEditText = findViewById(R.id.studentNameEditText)
         subjectEditText = findViewById(R.id.subjectEditText)
         searchButton = findViewById(R.id.searchButton)
@@ -28,10 +29,12 @@ class GradesLookupActivity : AppCompatActivity() {
         firebaseStore = FirebaseFirestore.getInstance()
 
         searchButton.setOnClickListener {
+            // Pobranie wprowadzonych wartości
             val studentName = studentNameEditText.text.toString()
             val subject = subjectEditText.text.toString()
 
             if (studentName.isNotEmpty() && subject.isNotEmpty()) {
+                // Wywołanie funkcji wyszukiwania ocen
                 searchGrades(studentName, subject)
             }
         }
@@ -76,6 +79,7 @@ class GradesLookupActivity : AppCompatActivity() {
     }
 
     private fun displayGrades(gradesList: List<String>) {
+        // Utworzenie adaptera i przypisanie go do listy ocen
         val gradesAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, gradesList)
         gradesListView.adapter = gradesAdapter
     }

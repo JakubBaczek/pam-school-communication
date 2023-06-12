@@ -20,6 +20,7 @@ class GradeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_grade)
 
+        // Inicjalizacja widoków
         studentSpinner = findViewById(R.id.studentSpinner)
         subjectSpinner = findViewById(R.id.subjectSpinner)
         gradeSpinner = findViewById(R.id.gradeSpinner)
@@ -38,15 +39,18 @@ class GradeActivity : AppCompatActivity() {
         subjectAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         gradeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
+        // Ustawienie adapterów dla spinnerów
         studentSpinner.adapter = studentAdapter
         subjectSpinner.adapter = subjectAdapter
         gradeSpinner.adapter = gradeAdapter
 
         addButton.setOnClickListener {
+            // Pobranie wybranych wartości z spinnerów
             val selectedStudent = studentSpinner.selectedItem.toString()
             val selectedSubject = subjectSpinner.selectedItem.toString()
             val selectedGrade = gradeSpinner.selectedItem.toString()
 
+            // Utworzenie referencji do dokumentu w bazie Firestore
             val docRef = firebaseStore.collection("Users").document(selectedStudent)
                 .collection("Subjects and Grades").document(selectedSubject)
 
@@ -54,11 +58,14 @@ class GradeActivity : AppCompatActivity() {
                 "Ocena" to selectedGrade
             )
 
+            // Ustawienie danych oceny w dokumencie
             docRef.set(gradeData)
                 .addOnSuccessListener {
+                    // Wyświetlenie powiadomienia
                     Toast.makeText(this, "Ocena dodana do Firestore", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
+                    // Błąd
                     Toast.makeText(this, "Błąd podczas dodawania oceny: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }
