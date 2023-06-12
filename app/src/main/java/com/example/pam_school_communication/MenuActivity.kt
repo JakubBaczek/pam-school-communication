@@ -25,20 +25,25 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        /*val button1: Button = findViewById(R.id.button1)
-        button1.setOnClickListener(this)*/
+        val button1: Button = findViewById(R.id.button1)
+        button1.setOnClickListener {
+            Intent(this, NotificationActivity::class.java).also {
+                startActivity(it)
+            }
+        }
 
         val button2: Button = findViewById(R.id.button2)
         button2.setOnClickListener {
-            val Intent = Intent(this, GradesLookupActivity::class.java)
-            startActivity(Intent)
+            Intent(this, GradesLookupActivity::class.java).also {
+                startActivity(it)
+            }
         }
 
         val button3: Button = findViewById(R.id.button3)
         button3.setOnClickListener {
-            val Intent = Intent(this, ChatStartActivity::class.java)
-            startActivity(Intent)
-
+            Intent(this, ChatStartActivity::class.java).also {
+                startActivity(it)
+            }
         }
 
         firebaseAuth = FirebaseAuth.getInstance()
